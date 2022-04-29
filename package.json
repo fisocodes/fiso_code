@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "antlr4ts-fiso": "antlr4ts -visitor -no-listener grammar/fiso/fiso.g4 -o grammar/fiso/",
-    "antlr4ts-c": "antlr4ts -visitor -no-listener grammar/c/c.g4 -o grammar/c/",
+    "antlr4ts-fiso": "antlr4ts -visitor -no-listener grammar-ts/fiso/Fiso.g4 -o grammar-ts/fiso/",
+    "antlr4ts-c": "antlr4ts -visitor -no-listener grammar-ts/c/C.g4 -o grammar-ts/c/",
+    "tsc-fiso": "tsc --target es6  --rootDir grammar-ts/fiso --outDir grammar-js/fiso",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

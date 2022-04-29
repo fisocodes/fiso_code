@@ -1,3 +1,8 @@
 .next
 package-lock.json
 node_modules
+grammar-ts
+next-env.d.ts
+tsconfig.json
+tsconfig.tsbuilinfo
+test.fiso

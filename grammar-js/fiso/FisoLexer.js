@@ -1,94 +1,117 @@
 "use strict";
-// Generated from grammar/fiso/fiso.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from grammar-ts/fiso/Fiso.g4 by ANTLR 4.9.0-SNAPSHOT
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fisoLexer = void 0;
+exports.FisoLexer = void 0;
 const ATNDeserializer_1 = require("antlr4ts/atn/ATNDeserializer");
 const Lexer_1 = require("antlr4ts/Lexer");
 const LexerATNSimulator_1 = require("antlr4ts/atn/LexerATNSimulator");
 const VocabularyImpl_1 = require("antlr4ts/VocabularyImpl");
-const Utils = require("antlr4ts/misc/Utils");
-class fisoLexer extends Lexer_1.Lexer {
+const Utils = __importStar(require("antlr4ts/misc/Utils"));
+class FisoLexer extends Lexer_1.Lexer {
     // tslint:enable:no-trailing-whitespace
     constructor(input) {
         super(input);
-        this._interp = new LexerATNSimulator_1.LexerATNSimulator(fisoLexer._ATN, this);
+        this._interp = new LexerATNSimulator_1.LexerATNSimulator(FisoLexer._ATN, this);
     }
     // @Override
     // @NotNull
     get vocabulary() {
-        return fisoLexer.VOCABULARY;
+        return FisoLexer.VOCABULARY;
     }
     // @Override
-    get grammarFileName() { return "fiso.g4"; }
+    get grammarFileName() { return "Fiso.g4"; }
     // @Override
-    get ruleNames() { return fisoLexer.ruleNames; }
+    get ruleNames() { return FisoLexer.ruleNames; }
     // @Override
-    get serializedATN() { return fisoLexer._serializedATN; }
+    get serializedATN() { return FisoLexer._serializedATN; }
     // @Override
-    get channelNames() { return fisoLexer.channelNames; }
+    get channelNames() { return FisoLexer.channelNames; }
     // @Override
-    get modeNames() { return fisoLexer.modeNames; }
+    get modeNames() { return FisoLexer.modeNames; }
     static get _ATN() {
-        if (!fisoLexer.__ATN) {
-            fisoLexer.__ATN = new ATNDeserializer_1.ATNDeserializer().deserialize(Utils.toCharArray(fisoLexer._serializedATN));
+        if (!FisoLexer.__ATN) {
+            FisoLexer.__ATN = new ATNDeserializer_1.ATNDeserializer().deserialize(Utils.toCharArray(FisoLexer._serializedATN));
         }
-        return fisoLexer.__ATN;
+        return FisoLexer.__ATN;
     }
 }
-exports.fisoLexer = fisoLexer;
-fisoLexer.LP = 1;
-fisoLexer.RP = 2;
-fisoLexer.LCB = 3;
-fisoLexer.RCB = 4;
-fisoLexer.MUL = 5;
-fisoLexer.DIV = 6;
-fisoLexer.ADD = 7;
-fisoLexer.SUB = 8;
-fisoLexer.GREATHER = 9;
-fisoLexer.LESSER = 10;
-fisoLexer.GREATEQUAL = 11;
-fisoLexer.LESSEQUAL = 12;
-fisoLexer.AND = 13;
-fisoLexer.OR = 14;
-fisoLexer.EQUAL = 15;
-fisoLexer.DIFFERENT = 16;
-fisoLexer.VAR = 17;
-fisoLexer.PRINT = 18;
-fisoLexer.IF = 19;
-fisoLexer.ELSE = 20;
-fisoLexer.WHILE = 21;
-fisoLexer.ASSIGN = 22;
-fisoLexer.NUMBER = 23;
-fisoLexer.TRUE = 24;
-fisoLexer.FALSE = 25;
-fisoLexer.ID = 26;
-fisoLexer.BLANKS = 27;
+exports.FisoLexer = FisoLexer;
+FisoLexer.LP = 1;
+FisoLexer.RP = 2;
+FisoLexer.LCB = 3;
+FisoLexer.RCB = 4;
+FisoLexer.MUL = 5;
+FisoLexer.DIV = 6;
+FisoLexer.ADD = 7;
+FisoLexer.SUB = 8;
+FisoLexer.GREATHER = 9;
+FisoLexer.LESSER = 10;
+FisoLexer.GREATEQUAL = 11;
+FisoLexer.LESSEQUAL = 12;
+FisoLexer.AND = 13;
+FisoLexer.OR = 14;
+FisoLexer.EQUAL = 15;
+FisoLexer.DIFFERENT = 16;
+FisoLexer.VAR = 17;
+FisoLexer.PRINT = 18;
+FisoLexer.IF = 19;
+FisoLexer.ELSE = 20;
+FisoLexer.WHILE = 21;
+FisoLexer.ASSIGN = 22;
+FisoLexer.NUMBER = 23;
+FisoLexer.TRUE = 24;
+FisoLexer.FALSE = 25;
+FisoLexer.ID = 26;
+FisoLexer.BLANKS = 27;
 // tslint:disable:no-trailing-whitespace
-fisoLexer.channelNames = [
+FisoLexer.channelNames = [
     "DEFAULT_TOKEN_CHANNEL", "HIDDEN",
 ];
 // tslint:disable:no-trailing-whitespace
-fisoLexer.modeNames = [
+FisoLexer.modeNames = [
     "DEFAULT_MODE",
 ];
-fisoLexer.ruleNames = [
+FisoLexer.ruleNames = [
     "LP", "RP", "LCB", "RCB", "MUL", "DIV", "ADD", "SUB", "GREATHER", "LESSER",
     "GREATEQUAL", "LESSEQUAL", "AND", "OR", "EQUAL", "DIFFERENT", "VAR", "PRINT",
     "IF", "ELSE", "WHILE", "ASSIGN", "NUMBER", "TRUE", "FALSE", "ID", "BLANKS",
 ];
-fisoLexer._LITERAL_NAMES = [
+FisoLexer._LITERAL_NAMES = [
     undefined, "'('", "')'", "'{'", "'}'", "'*'", "'/'", "'+'", "'-'", "'>'",
     "'<'", "'>='", "'<='", "'&&'", "'||'", "'=='", "'!='", "'var'", "'print'",
     "'if'", "'else'", "'while'", "'='", undefined, "'true'", "'false'",
 ];
-fisoLexer._SYMBOLIC_NAMES = [
+FisoLexer._SYMBOLIC_NAMES = [
     undefined, "LP", "RP", "LCB", "RCB", "MUL", "DIV", "ADD", "SUB", "GREATHER",
     "LESSER", "GREATEQUAL", "LESSEQUAL", "AND", "OR", "EQUAL", "DIFFERENT",
     "VAR", "PRINT", "IF", "ELSE", "WHILE", "ASSIGN", "NUMBER", "TRUE", "FALSE",
     "ID", "BLANKS",
 ];
-fisoLexer.VOCABULARY = new VocabularyImpl_1.VocabularyImpl(fisoLexer._LITERAL_NAMES, fisoLexer._SYMBOLIC_NAMES, []);
-fisoLexer._serializedATN = "\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x02\x1D\x98\b\x01" +
+FisoLexer.VOCABULARY = new VocabularyImpl_1.VocabularyImpl(FisoLexer._LITERAL_NAMES, FisoLexer._SYMBOLIC_NAMES, []);
+FisoLexer._serializedATN = "\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x02\x1D\x98\b\x01" +
     "\x04\x02\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06" +
     "\x04\x07\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r" +
     "\t\r\x04\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t" +

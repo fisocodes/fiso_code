@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "out",
+    "outDir": "grammar-js",
     "target": "ES6",
     "module": "commonjs",
     "types": [
@@ -15,7 +15,7 @@
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "noEmit": false,
     "incremental": true,
     "esModuleInterop": true,
     "moduleResolution": "node",

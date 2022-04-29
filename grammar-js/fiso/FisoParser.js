@@ -1,7 +1,30 @@
 "use strict";
-// Generated from grammar/fiso/fiso.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from grammar-ts/fiso/Fiso.g4 by ANTLR 4.9.0-SNAPSHOT
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LoContext = exports.BooleanContext = exports.WhileContext = exports.ElseblockContext = exports.ElseifblockContext = exports.IfblockContext = exports.IfelseContext = exports.IdExpressionContext = exports.NumberExpressionContext = exports.ParenthesisExpressionContext = exports.AddsubExpressionContext = exports.MuldivExpressionContext = exports.SubExpressionContext = exports.ExpressionContext = exports.IdConditionContext = exports.NumberConditionContext = exports.BooleanConditionContext = exports.ParenthesisConditionContext = exports.ExpressionConditionContext = exports.ConditionConditionContext = exports.ConditionContext = exports.AssignmentContext = exports.DeclarationContext = exports.PrintContext = exports.StatementContext = exports.ProgramContext = exports.fisoParser = void 0;
+exports.LoContext = exports.BooleanContext = exports.WhileContext = exports.ElseblockContext = exports.ElseifblockContext = exports.IfblockContext = exports.IfelseContext = exports.IdExpressionContext = exports.NumberExpressionContext = exports.ParenthesisExpressionContext = exports.AddsubExpressionContext = exports.MuldivExpressionContext = exports.SubExpressionContext = exports.ExpressionContext = exports.IdConditionContext = exports.NumberConditionContext = exports.BooleanConditionContext = exports.ParenthesisConditionContext = exports.ExpressionConditionContext = exports.ConditionConditionContext = exports.ConditionContext = exports.AssignmentContext = exports.DeclarationContext = exports.PrintContext = exports.StatementContext = exports.ProgramContext = exports.FisoParser = void 0;
 const ATN_1 = require("antlr4ts/atn/ATN");
 const ATNDeserializer_1 = require("antlr4ts/atn/ATNDeserializer");
 const FailedPredicateException_1 = require("antlr4ts/FailedPredicateException");
@@ -12,31 +35,31 @@ const ParserATNSimulator_1 = require("antlr4ts/atn/ParserATNSimulator");
 const RecognitionException_1 = require("antlr4ts/RecognitionException");
 const Token_1 = require("antlr4ts/Token");
 const VocabularyImpl_1 = require("antlr4ts/VocabularyImpl");
-const Utils = require("antlr4ts/misc/Utils");
-class fisoParser extends Parser_1.Parser {
+const Utils = __importStar(require("antlr4ts/misc/Utils"));
+class FisoParser extends Parser_1.Parser {
     constructor(input) {
         super(input);
-        this._interp = new ParserATNSimulator_1.ParserATNSimulator(fisoParser._ATN, this);
+        this._interp = new ParserATNSimulator_1.ParserATNSimulator(FisoParser._ATN, this);
     }
     // @Override
     // @NotNull
     get vocabulary() {
-        return fisoParser.VOCABULARY;
+        return FisoParser.VOCABULARY;
     }
     // tslint:enable:no-trailing-whitespace
     // @Override
-    get grammarFileName() { return "fiso.g4"; }
+    get grammarFileName() { return "Fiso.g4"; }
     // @Override
-    get ruleNames() { return fisoParser.ruleNames; }
+    get ruleNames() { return FisoParser.ruleNames; }
     // @Override
-    get serializedATN() { return fisoParser._serializedATN; }
+    get serializedATN() { return FisoParser._serializedATN; }
     createFailedPredicateException(predicate, message) {
         return new FailedPredicateException_1.FailedPredicateException(this, predicate, message);
     }
     // @RuleVersion(0)
     program() {
         let _localctx = new ProgramContext(this._ctx, this.state);
-        this.enterRule(_localctx, 0, fisoParser.RULE_program);
+        this.enterRule(_localctx, 0, FisoParser.RULE_program);
         let _la;
         try {
             this.enterOuterAlt(_localctx, 1);
@@ -44,7 +67,7 @@ class fisoParser extends Parser_1.Parser {
                 this.state = 31;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
-                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << fisoParser.VAR) | (1 << fisoParser.PRINT) | (1 << fisoParser.IF) | (1 << fisoParser.WHILE) | (1 << fisoParser.ID))) !== 0)) {
+                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << FisoParser.VAR) | (1 << FisoParser.PRINT) | (1 << FisoParser.IF) | (1 << FisoParser.WHILE) | (1 << FisoParser.ID))) !== 0)) {
                     {
                         {
                             this.state = 28;
@@ -75,40 +98,40 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     statement() {
         let _localctx = new StatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 2, fisoParser.RULE_statement);
+        this.enterRule(_localctx, 2, FisoParser.RULE_statement);
         try {
             this.state = 39;
             this._errHandler.sync(this);
             switch (this._input.LA(1)) {
-                case fisoParser.VAR:
+                case FisoParser.VAR:
                     this.enterOuterAlt(_localctx, 1);
                     {
                         this.state = 34;
                         this.declaration();
                     }
                     break;
-                case fisoParser.ID:
+                case FisoParser.ID:
                     this.enterOuterAlt(_localctx, 2);
                     {
                         this.state = 35;
                         this.assignment();
                     }
                     break;
-                case fisoParser.PRINT:
+                case FisoParser.PRINT:
                     this.enterOuterAlt(_localctx, 3);
                     {
                         this.state = 36;
                         this.print();
                     }
                     break;
-                case fisoParser.IF:
+                case FisoParser.IF:
                     this.enterOuterAlt(_localctx, 4);
                     {
                         this.state = 37;
                         this.ifelse();
                     }
                     break;
-                case fisoParser.WHILE:
+                case FisoParser.WHILE:
                     this.enterOuterAlt(_localctx, 5);
                     {
                         this.state = 38;
@@ -137,12 +160,12 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     print() {
         let _localctx = new PrintContext(this._ctx, this.state);
-        this.enterRule(_localctx, 4, fisoParser.RULE_print);
+        this.enterRule(_localctx, 4, FisoParser.RULE_print);
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 41;
-                this.match(fisoParser.PRINT);
+                this.match(FisoParser.PRINT);
                 this.state = 44;
                 this._errHandler.sync(this);
                 switch (this.interpreter.adaptivePredict(this._input, 2, this._ctx)) {
@@ -179,14 +202,14 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     declaration() {
         let _localctx = new DeclarationContext(this._ctx, this.state);
-        this.enterRule(_localctx, 6, fisoParser.RULE_declaration);
+        this.enterRule(_localctx, 6, FisoParser.RULE_declaration);
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 46;
-                this.match(fisoParser.VAR);
+                this.match(FisoParser.VAR);
                 this.state = 47;
-                this.match(fisoParser.ID);
+                this.match(FisoParser.ID);
             }
         }
         catch (re) {
@@ -207,14 +230,14 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     assignment() {
         let _localctx = new AssignmentContext(this._ctx, this.state);
-        this.enterRule(_localctx, 8, fisoParser.RULE_assignment);
+        this.enterRule(_localctx, 8, FisoParser.RULE_assignment);
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 49;
-                this.match(fisoParser.ID);
+                this.match(FisoParser.ID);
                 this.state = 50;
-                this.match(fisoParser.ASSIGN);
+                this.match(FisoParser.ASSIGN);
                 this.state = 53;
                 this._errHandler.sync(this);
                 switch (this.interpreter.adaptivePredict(this._input, 3, this._ctx)) {
@@ -258,7 +281,7 @@ class fisoParser extends Parser_1.Parser {
         let _localctx = new ConditionContext(this._ctx, _parentState);
         let _prevctx = _localctx;
         let _startState = 10;
-        this.enterRecursionRule(_localctx, 10, fisoParser.RULE_condition, _p);
+        this.enterRecursionRule(_localctx, 10, FisoParser.RULE_condition, _p);
         try {
             let _alt;
             this.enterOuterAlt(_localctx, 1);
@@ -285,11 +308,11 @@ class fisoParser extends Parser_1.Parser {
                             this._ctx = _localctx;
                             _prevctx = _localctx;
                             this.state = 60;
-                            this.match(fisoParser.LP);
+                            this.match(FisoParser.LP);
                             this.state = 61;
                             this.condition(0);
                             this.state = 62;
-                            this.match(fisoParser.RP);
+                            this.match(FisoParser.RP);
                         }
                         break;
                     case 3:
@@ -307,7 +330,7 @@ class fisoParser extends Parser_1.Parser {
                             this._ctx = _localctx;
                             _prevctx = _localctx;
                             this.state = 65;
-                            this.match(fisoParser.NUMBER);
+                            this.match(FisoParser.NUMBER);
                         }
                         break;
                     case 5:
@@ -316,7 +339,7 @@ class fisoParser extends Parser_1.Parser {
                             this._ctx = _localctx;
                             _prevctx = _localctx;
                             this.state = 66;
-                            this.match(fisoParser.ID);
+                            this.match(FisoParser.ID);
                         }
                         break;
                 }
@@ -333,7 +356,7 @@ class fisoParser extends Parser_1.Parser {
                         {
                             {
                                 _localctx = new ConditionConditionContext(new ConditionContext(_parentctx, _parentState));
-                                this.pushNewRecursionContext(_localctx, _startState, fisoParser.RULE_condition);
+                                this.pushNewRecursionContext(_localctx, _startState, FisoParser.RULE_condition);
                                 this.state = 69;
                                 if (!(this.precpred(this._ctx, 6))) {
                                     throw this.createFailedPredicateException("this.precpred(this._ctx, 6)");
@@ -376,7 +399,7 @@ class fisoParser extends Parser_1.Parser {
         let _localctx = new ExpressionContext(this._ctx, _parentState);
         let _prevctx = _localctx;
         let _startState = 12;
-        this.enterRecursionRule(_localctx, 12, fisoParser.RULE_expression, _p);
+        this.enterRecursionRule(_localctx, 12, FisoParser.RULE_expression, _p);
         let _la;
         try {
             let _alt;
@@ -385,46 +408,46 @@ class fisoParser extends Parser_1.Parser {
                 this.state = 87;
                 this._errHandler.sync(this);
                 switch (this._input.LA(1)) {
-                    case fisoParser.SUB:
+                    case FisoParser.SUB:
                         {
                             _localctx = new SubExpressionContext(_localctx);
                             this._ctx = _localctx;
                             _prevctx = _localctx;
                             this.state = 79;
-                            this.match(fisoParser.SUB);
+                            this.match(FisoParser.SUB);
                             this.state = 80;
                             this.expression(6);
                         }
                         break;
-                    case fisoParser.LP:
+                    case FisoParser.LP:
                         {
                             _localctx = new ParenthesisExpressionContext(_localctx);
                             this._ctx = _localctx;
                             _prevctx = _localctx;
                             this.state = 81;
-                            this.match(fisoParser.LP);
+                            this.match(FisoParser.LP);
                             this.state = 82;
                             this.expression(0);
                             this.state = 83;
-                            this.match(fisoParser.RP);
+                            this.match(FisoParser.RP);
                         }
                         break;
-                    case fisoParser.NUMBER:
+                    case FisoParser.NUMBER:
                         {
                             _localctx = new NumberExpressionContext(_localctx);
                             this._ctx = _localctx;
                             _prevctx = _localctx;
                             this.state = 85;
-                            this.match(fisoParser.NUMBER);
+                            this.match(FisoParser.NUMBER);
                         }
                         break;
-                    case fisoParser.ID:
+                    case FisoParser.ID:
                         {
                             _localctx = new IdExpressionContext(_localctx);
                             this._ctx = _localctx;
                             _prevctx = _localctx;
                             this.state = 86;
-                            this.match(fisoParser.ID);
+                            this.match(FisoParser.ID);
                         }
                         break;
                     default:
@@ -447,7 +470,7 @@ class fisoParser extends Parser_1.Parser {
                                 case 1:
                                     {
                                         _localctx = new MuldivExpressionContext(new ExpressionContext(_parentctx, _parentState));
-                                        this.pushNewRecursionContext(_localctx, _startState, fisoParser.RULE_expression);
+                                        this.pushNewRecursionContext(_localctx, _startState, FisoParser.RULE_expression);
                                         this.state = 89;
                                         if (!(this.precpred(this._ctx, 5))) {
                                             throw this.createFailedPredicateException("this.precpred(this._ctx, 5)");
@@ -455,7 +478,7 @@ class fisoParser extends Parser_1.Parser {
                                         this.state = 90;
                                         _localctx._operator = this._input.LT(1);
                                         _la = this._input.LA(1);
-                                        if (!(_la === fisoParser.MUL || _la === fisoParser.DIV)) {
+                                        if (!(_la === FisoParser.MUL || _la === FisoParser.DIV)) {
                                             _localctx._operator = this._errHandler.recoverInline(this);
                                         }
                                         else {
@@ -472,7 +495,7 @@ class fisoParser extends Parser_1.Parser {
                                 case 2:
                                     {
                                         _localctx = new AddsubExpressionContext(new ExpressionContext(_parentctx, _parentState));
-                                        this.pushNewRecursionContext(_localctx, _startState, fisoParser.RULE_expression);
+                                        this.pushNewRecursionContext(_localctx, _startState, FisoParser.RULE_expression);
                                         this.state = 92;
                                         if (!(this.precpred(this._ctx, 4))) {
                                             throw this.createFailedPredicateException("this.precpred(this._ctx, 4)");
@@ -480,7 +503,7 @@ class fisoParser extends Parser_1.Parser {
                                         this.state = 93;
                                         _localctx._operator = this._input.LT(1);
                                         _la = this._input.LA(1);
-                                        if (!(_la === fisoParser.ADD || _la === fisoParser.SUB)) {
+                                        if (!(_la === FisoParser.ADD || _la === FisoParser.SUB)) {
                                             _localctx._operator = this._errHandler.recoverInline(this);
                                         }
                                         else {
@@ -521,7 +544,7 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     ifelse() {
         let _localctx = new IfelseContext(this._ctx, this.state);
-        this.enterRule(_localctx, 14, fisoParser.RULE_ifelse);
+        this.enterRule(_localctx, 14, FisoParser.RULE_ifelse);
         let _la;
         try {
             let _alt;
@@ -548,7 +571,7 @@ class fisoParser extends Parser_1.Parser {
                 this.state = 108;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
-                if (_la === fisoParser.ELSE) {
+                if (_la === FisoParser.ELSE) {
                     {
                         this.state = 107;
                         this.elseblock();
@@ -574,21 +597,21 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     ifblock() {
         let _localctx = new IfblockContext(this._ctx, this.state);
-        this.enterRule(_localctx, 16, fisoParser.RULE_ifblock);
+        this.enterRule(_localctx, 16, FisoParser.RULE_ifblock);
         let _la;
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 110;
-                this.match(fisoParser.IF);
+                this.match(FisoParser.IF);
                 this.state = 111;
                 this.condition(0);
                 this.state = 112;
-                this.match(fisoParser.LCB);
+                this.match(FisoParser.LCB);
                 this.state = 116;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
-                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << fisoParser.VAR) | (1 << fisoParser.PRINT) | (1 << fisoParser.IF) | (1 << fisoParser.WHILE) | (1 << fisoParser.ID))) !== 0)) {
+                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << FisoParser.VAR) | (1 << FisoParser.PRINT) | (1 << FisoParser.IF) | (1 << FisoParser.WHILE) | (1 << FisoParser.ID))) !== 0)) {
                     {
                         {
                             this.state = 113;
@@ -600,7 +623,7 @@ class fisoParser extends Parser_1.Parser {
                     _la = this._input.LA(1);
                 }
                 this.state = 119;
-                this.match(fisoParser.RCB);
+                this.match(FisoParser.RCB);
             }
         }
         catch (re) {
@@ -621,23 +644,23 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     elseifblock() {
         let _localctx = new ElseifblockContext(this._ctx, this.state);
-        this.enterRule(_localctx, 18, fisoParser.RULE_elseifblock);
+        this.enterRule(_localctx, 18, FisoParser.RULE_elseifblock);
         let _la;
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 121;
-                this.match(fisoParser.ELSE);
+                this.match(FisoParser.ELSE);
                 this.state = 122;
-                this.match(fisoParser.IF);
+                this.match(FisoParser.IF);
                 this.state = 123;
                 this.condition(0);
                 this.state = 124;
-                this.match(fisoParser.LCB);
+                this.match(FisoParser.LCB);
                 this.state = 128;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
-                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << fisoParser.VAR) | (1 << fisoParser.PRINT) | (1 << fisoParser.IF) | (1 << fisoParser.WHILE) | (1 << fisoParser.ID))) !== 0)) {
+                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << FisoParser.VAR) | (1 << FisoParser.PRINT) | (1 << FisoParser.IF) | (1 << FisoParser.WHILE) | (1 << FisoParser.ID))) !== 0)) {
                     {
                         {
                             this.state = 125;
@@ -649,7 +672,7 @@ class fisoParser extends Parser_1.Parser {
                     _la = this._input.LA(1);
                 }
                 this.state = 131;
-                this.match(fisoParser.RCB);
+                this.match(FisoParser.RCB);
             }
         }
         catch (re) {
@@ -670,19 +693,19 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     elseblock() {
         let _localctx = new ElseblockContext(this._ctx, this.state);
-        this.enterRule(_localctx, 20, fisoParser.RULE_elseblock);
+        this.enterRule(_localctx, 20, FisoParser.RULE_elseblock);
         let _la;
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 133;
-                this.match(fisoParser.ELSE);
+                this.match(FisoParser.ELSE);
                 this.state = 134;
-                this.match(fisoParser.LCB);
+                this.match(FisoParser.LCB);
                 this.state = 138;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
-                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << fisoParser.VAR) | (1 << fisoParser.PRINT) | (1 << fisoParser.IF) | (1 << fisoParser.WHILE) | (1 << fisoParser.ID))) !== 0)) {
+                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << FisoParser.VAR) | (1 << FisoParser.PRINT) | (1 << FisoParser.IF) | (1 << FisoParser.WHILE) | (1 << FisoParser.ID))) !== 0)) {
                     {
                         {
                             this.state = 135;
@@ -694,7 +717,7 @@ class fisoParser extends Parser_1.Parser {
                     _la = this._input.LA(1);
                 }
                 this.state = 141;
-                this.match(fisoParser.RCB);
+                this.match(FisoParser.RCB);
             }
         }
         catch (re) {
@@ -715,21 +738,21 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     while() {
         let _localctx = new WhileContext(this._ctx, this.state);
-        this.enterRule(_localctx, 22, fisoParser.RULE_while);
+        this.enterRule(_localctx, 22, FisoParser.RULE_while);
         let _la;
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 143;
-                this.match(fisoParser.WHILE);
+                this.match(FisoParser.WHILE);
                 this.state = 144;
                 this.condition(0);
                 this.state = 145;
-                this.match(fisoParser.LCB);
+                this.match(FisoParser.LCB);
                 this.state = 149;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
-                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << fisoParser.VAR) | (1 << fisoParser.PRINT) | (1 << fisoParser.IF) | (1 << fisoParser.WHILE) | (1 << fisoParser.ID))) !== 0)) {
+                while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << FisoParser.VAR) | (1 << FisoParser.PRINT) | (1 << FisoParser.IF) | (1 << FisoParser.WHILE) | (1 << FisoParser.ID))) !== 0)) {
                     {
                         {
                             this.state = 146;
@@ -741,7 +764,7 @@ class fisoParser extends Parser_1.Parser {
                     _la = this._input.LA(1);
                 }
                 this.state = 152;
-                this.match(fisoParser.RCB);
+                this.match(FisoParser.RCB);
             }
         }
         catch (re) {
@@ -762,14 +785,14 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     boolean() {
         let _localctx = new BooleanContext(this._ctx, this.state);
-        this.enterRule(_localctx, 24, fisoParser.RULE_boolean);
+        this.enterRule(_localctx, 24, FisoParser.RULE_boolean);
         let _la;
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 154;
                 _la = this._input.LA(1);
-                if (!(_la === fisoParser.TRUE || _la === fisoParser.FALSE)) {
+                if (!(_la === FisoParser.TRUE || _la === FisoParser.FALSE)) {
                     this._errHandler.recoverInline(this);
                 }
                 else {
@@ -799,14 +822,14 @@ class fisoParser extends Parser_1.Parser {
     // @RuleVersion(0)
     lo() {
         let _localctx = new LoContext(this._ctx, this.state);
-        this.enterRule(_localctx, 26, fisoParser.RULE_lo);
+        this.enterRule(_localctx, 26, FisoParser.RULE_lo);
         let _la;
         try {
             this.enterOuterAlt(_localctx, 1);
             {
                 this.state = 156;
                 _la = this._input.LA(1);
-                if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << fisoParser.GREATHER) | (1 << fisoParser.LESSER) | (1 << fisoParser.GREATEQUAL) | (1 << fisoParser.LESSEQUAL) | (1 << fisoParser.AND) | (1 << fisoParser.OR) | (1 << fisoParser.EQUAL) | (1 << fisoParser.DIFFERENT))) !== 0))) {
+                if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << FisoParser.GREATHER) | (1 << FisoParser.LESSER) | (1 << FisoParser.GREATEQUAL) | (1 << FisoParser.LESSEQUAL) | (1 << FisoParser.AND) | (1 << FisoParser.OR) | (1 << FisoParser.EQUAL) | (1 << FisoParser.DIFFERENT))) !== 0))) {
                     this._errHandler.recoverInline(this);
                 }
                 else {
@@ -859,73 +882,73 @@ class fisoParser extends Parser_1.Parser {
         return true;
     }
     static get _ATN() {
-        if (!fisoParser.__ATN) {
-            fisoParser.__ATN = new ATNDeserializer_1.ATNDeserializer().deserialize(Utils.toCharArray(fisoParser._serializedATN));
+        if (!FisoParser.__ATN) {
+            FisoParser.__ATN = new ATNDeserializer_1.ATNDeserializer().deserialize(Utils.toCharArray(FisoParser._serializedATN));
         }
-        return fisoParser.__ATN;
+        return FisoParser.__ATN;
     }
 }
-exports.fisoParser = fisoParser;
-fisoParser.LP = 1;
-fisoParser.RP = 2;
-fisoParser.LCB = 3;
-fisoParser.RCB = 4;
-fisoParser.MUL = 5;
-fisoParser.DIV = 6;
-fisoParser.ADD = 7;
-fisoParser.SUB = 8;
-fisoParser.GREATHER = 9;
-fisoParser.LESSER = 10;
-fisoParser.GREATEQUAL = 11;
-fisoParser.LESSEQUAL = 12;
-fisoParser.AND = 13;
-fisoParser.OR = 14;
-fisoParser.EQUAL = 15;
-fisoParser.DIFFERENT = 16;
-fisoParser.VAR = 17;
-fisoParser.PRINT = 18;
-fisoParser.IF = 19;
-fisoParser.ELSE = 20;
-fisoParser.WHILE = 21;
-fisoParser.ASSIGN = 22;
-fisoParser.NUMBER = 23;
-fisoParser.TRUE = 24;
-fisoParser.FALSE = 25;
-fisoParser.ID = 26;
-fisoParser.BLANKS = 27;
-fisoParser.RULE_program = 0;
-fisoParser.RULE_statement = 1;
-fisoParser.RULE_print = 2;
-fisoParser.RULE_declaration = 3;
-fisoParser.RULE_assignment = 4;
-fisoParser.RULE_condition = 5;
-fisoParser.RULE_expression = 6;
-fisoParser.RULE_ifelse = 7;
-fisoParser.RULE_ifblock = 8;
-fisoParser.RULE_elseifblock = 9;
-fisoParser.RULE_elseblock = 10;
-fisoParser.RULE_while = 11;
-fisoParser.RULE_boolean = 12;
-fisoParser.RULE_lo = 13;
+exports.FisoParser = FisoParser;
+FisoParser.LP = 1;
+FisoParser.RP = 2;
+FisoParser.LCB = 3;
+FisoParser.RCB = 4;
+FisoParser.MUL = 5;
+FisoParser.DIV = 6;
+FisoParser.ADD = 7;
+FisoParser.SUB = 8;
+FisoParser.GREATHER = 9;
+FisoParser.LESSER = 10;
+FisoParser.GREATEQUAL = 11;
+FisoParser.LESSEQUAL = 12;
+FisoParser.AND = 13;
+FisoParser.OR = 14;
+FisoParser.EQUAL = 15;
+FisoParser.DIFFERENT = 16;
+FisoParser.VAR = 17;
+FisoParser.PRINT = 18;
+FisoParser.IF = 19;
+FisoParser.ELSE = 20;
+FisoParser.WHILE = 21;
+FisoParser.ASSIGN = 22;
+FisoParser.NUMBER = 23;
+FisoParser.TRUE = 24;
+FisoParser.FALSE = 25;
+FisoParser.ID = 26;
+FisoParser.BLANKS = 27;
+FisoParser.RULE_program = 0;
+FisoParser.RULE_statement = 1;
+FisoParser.RULE_print = 2;
+FisoParser.RULE_declaration = 3;
+FisoParser.RULE_assignment = 4;
+FisoParser.RULE_condition = 5;
+FisoParser.RULE_expression = 6;
+FisoParser.RULE_ifelse = 7;
+FisoParser.RULE_ifblock = 8;
+FisoParser.RULE_elseifblock = 9;
+FisoParser.RULE_elseblock = 10;
+FisoParser.RULE_while = 11;
+FisoParser.RULE_boolean = 12;
+FisoParser.RULE_lo = 13;
 // tslint:disable:no-trailing-whitespace
-fisoParser.ruleNames = [
+FisoParser.ruleNames = [
     "program", "statement", "print", "declaration", "assignment", "condition",
     "expression", "ifelse", "ifblock", "elseifblock", "elseblock", "while",
     "boolean", "lo",
 ];
-fisoParser._LITERAL_NAMES = [
+FisoParser._LITERAL_NAMES = [
     undefined, "'('", "')'", "'{'", "'}'", "'*'", "'/'", "'+'", "'-'", "'>'",
     "'<'", "'>='", "'<='", "'&&'", "'||'", "'=='", "'!='", "'var'", "'print'",
     "'if'", "'else'", "'while'", "'='", undefined, "'true'", "'false'",
 ];
-fisoParser._SYMBOLIC_NAMES = [
+FisoParser._SYMBOLIC_NAMES = [
     undefined, "LP", "RP", "LCB", "RCB", "MUL", "DIV", "ADD", "SUB", "GREATHER",
     "LESSER", "GREATEQUAL", "LESSEQUAL", "AND", "OR", "EQUAL", "DIFFERENT",
     "VAR", "PRINT", "IF", "ELSE", "WHILE", "ASSIGN", "NUMBER", "TRUE", "FALSE",
     "ID", "BLANKS",
 ];
-fisoParser.VOCABULARY = new VocabularyImpl_1.VocabularyImpl(fisoParser._LITERAL_NAMES, fisoParser._SYMBOLIC_NAMES, []);
-fisoParser._serializedATN = "\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\x1D\xA1\x04\x02" +
+FisoParser.VOCABULARY = new VocabularyImpl_1.VocabularyImpl(FisoParser._LITERAL_NAMES, FisoParser._SYMBOLIC_NAMES, []);
+FisoParser._serializedATN = "\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\x1D\xA1\x04\x02" +
     "\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" +
     "\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" +
     "\x0E\t\x0E\x04\x0F\t\x0F\x03\x02\x07\x02 \n\x02\f\x02\x0E\x02#\v\x02\x03" +
@@ -1003,7 +1026,7 @@ class ProgramContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_program; }
+    get ruleIndex() { return FisoParser.RULE_program; }
     // @Override
     accept(visitor) {
         if (visitor.visitProgram) {
@@ -1035,7 +1058,7 @@ class StatementContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_statement; }
+    get ruleIndex() { return FisoParser.RULE_statement; }
     // @Override
     accept(visitor) {
         if (visitor.visitStatement) {
@@ -1048,7 +1071,7 @@ class StatementContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.StatementContext = StatementContext;
 class PrintContext extends ParserRuleContext_1.ParserRuleContext {
-    PRINT() { return this.getToken(fisoParser.PRINT, 0); }
+    PRINT() { return this.getToken(FisoParser.PRINT, 0); }
     expression() {
         return this.tryGetRuleContext(0, ExpressionContext);
     }
@@ -1059,7 +1082,7 @@ class PrintContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_print; }
+    get ruleIndex() { return FisoParser.RULE_print; }
     // @Override
     accept(visitor) {
         if (visitor.visitPrint) {
@@ -1072,13 +1095,13 @@ class PrintContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.PrintContext = PrintContext;
 class DeclarationContext extends ParserRuleContext_1.ParserRuleContext {
-    VAR() { return this.getToken(fisoParser.VAR, 0); }
-    ID() { return this.getToken(fisoParser.ID, 0); }
+    VAR() { return this.getToken(FisoParser.VAR, 0); }
+    ID() { return this.getToken(FisoParser.ID, 0); }
     constructor(parent, invokingState) {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_declaration; }
+    get ruleIndex() { return FisoParser.RULE_declaration; }
     // @Override
     accept(visitor) {
         if (visitor.visitDeclaration) {
@@ -1091,8 +1114,8 @@ class DeclarationContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.DeclarationContext = DeclarationContext;
 class AssignmentContext extends ParserRuleContext_1.ParserRuleContext {
-    ID() { return this.getToken(fisoParser.ID, 0); }
-    ASSIGN() { return this.getToken(fisoParser.ASSIGN, 0); }
+    ID() { return this.getToken(FisoParser.ID, 0); }
+    ASSIGN() { return this.getToken(FisoParser.ASSIGN, 0); }
     expression() {
         return this.tryGetRuleContext(0, ExpressionContext);
     }
@@ -1103,7 +1126,7 @@ class AssignmentContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_assignment; }
+    get ruleIndex() { return FisoParser.RULE_assignment; }
     // @Override
     accept(visitor) {
         if (visitor.visitAssignment) {
@@ -1120,7 +1143,7 @@ class ConditionContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_condition; }
+    get ruleIndex() { return FisoParser.RULE_condition; }
     copyFrom(ctx) {
         super.copyFrom(ctx);
     }
@@ -1181,11 +1204,11 @@ class ExpressionConditionContext extends ConditionContext {
 }
 exports.ExpressionConditionContext = ExpressionConditionContext;
 class ParenthesisConditionContext extends ConditionContext {
-    LP() { return this.getToken(fisoParser.LP, 0); }
+    LP() { return this.getToken(FisoParser.LP, 0); }
     condition() {
         return this.getRuleContext(0, ConditionContext);
     }
-    RP() { return this.getToken(fisoParser.RP, 0); }
+    RP() { return this.getToken(FisoParser.RP, 0); }
     constructor(ctx) {
         super(ctx.parent, ctx.invokingState);
         this.copyFrom(ctx);
@@ -1221,7 +1244,7 @@ class BooleanConditionContext extends ConditionContext {
 }
 exports.BooleanConditionContext = BooleanConditionContext;
 class NumberConditionContext extends ConditionContext {
-    NUMBER() { return this.getToken(fisoParser.NUMBER, 0); }
+    NUMBER() { return this.getToken(FisoParser.NUMBER, 0); }
     constructor(ctx) {
         super(ctx.parent, ctx.invokingState);
         this.copyFrom(ctx);
@@ -1238,7 +1261,7 @@ class NumberConditionContext extends ConditionContext {
 }
 exports.NumberConditionContext = NumberConditionContext;
 class IdConditionContext extends ConditionContext {
-    ID() { return this.getToken(fisoParser.ID, 0); }
+    ID() { return this.getToken(FisoParser.ID, 0); }
     constructor(ctx) {
         super(ctx.parent, ctx.invokingState);
         this.copyFrom(ctx);
@@ -1259,14 +1282,14 @@ class ExpressionContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_expression; }
+    get ruleIndex() { return FisoParser.RULE_expression; }
     copyFrom(ctx) {
         super.copyFrom(ctx);
     }
 }
 exports.ExpressionContext = ExpressionContext;
 class SubExpressionContext extends ExpressionContext {
-    SUB() { return this.getToken(fisoParser.SUB, 0); }
+    SUB() { return this.getToken(FisoParser.SUB, 0); }
     expression() {
         return this.getRuleContext(0, ExpressionContext);
     }
@@ -1298,8 +1321,8 @@ class MuldivExpressionContext extends ExpressionContext {
             return this.getRuleContext(i, ExpressionContext);
         }
     }
-    MUL() { return this.tryGetToken(fisoParser.MUL, 0); }
-    DIV() { return this.tryGetToken(fisoParser.DIV, 0); }
+    MUL() { return this.tryGetToken(FisoParser.MUL, 0); }
+    DIV() { return this.tryGetToken(FisoParser.DIV, 0); }
     // @Override
     accept(visitor) {
         if (visitor.visitMuldivExpression) {
@@ -1324,8 +1347,8 @@ class AddsubExpressionContext extends ExpressionContext {
             return this.getRuleContext(i, ExpressionContext);
         }
     }
-    ADD() { return this.tryGetToken(fisoParser.ADD, 0); }
-    SUB() { return this.tryGetToken(fisoParser.SUB, 0); }
+    ADD() { return this.tryGetToken(FisoParser.ADD, 0); }
+    SUB() { return this.tryGetToken(FisoParser.SUB, 0); }
     // @Override
     accept(visitor) {
         if (visitor.visitAddsubExpression) {
@@ -1338,11 +1361,11 @@ class AddsubExpressionContext extends ExpressionContext {
 }
 exports.AddsubExpressionContext = AddsubExpressionContext;
 class ParenthesisExpressionContext extends ExpressionContext {
-    LP() { return this.getToken(fisoParser.LP, 0); }
+    LP() { return this.getToken(FisoParser.LP, 0); }
     expression() {
         return this.getRuleContext(0, ExpressionContext);
     }
-    RP() { return this.getToken(fisoParser.RP, 0); }
+    RP() { return this.getToken(FisoParser.RP, 0); }
     constructor(ctx) {
         super(ctx.parent, ctx.invokingState);
         this.copyFrom(ctx);
@@ -1359,7 +1382,7 @@ class ParenthesisExpressionContext extends ExpressionContext {
 }
 exports.ParenthesisExpressionContext = ParenthesisExpressionContext;
 class NumberExpressionContext extends ExpressionContext {
-    NUMBER() { return this.getToken(fisoParser.NUMBER, 0); }
+    NUMBER() { return this.getToken(FisoParser.NUMBER, 0); }
     constructor(ctx) {
         super(ctx.parent, ctx.invokingState);
         this.copyFrom(ctx);
@@ -1376,7 +1399,7 @@ class NumberExpressionContext extends ExpressionContext {
 }
 exports.NumberExpressionContext = NumberExpressionContext;
 class IdExpressionContext extends ExpressionContext {
-    ID() { return this.getToken(fisoParser.ID, 0); }
+    ID() { return this.getToken(FisoParser.ID, 0); }
     constructor(ctx) {
         super(ctx.parent, ctx.invokingState);
         this.copyFrom(ctx);
@@ -1411,7 +1434,7 @@ class IfelseContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_ifelse; }
+    get ruleIndex() { return FisoParser.RULE_ifelse; }
     // @Override
     accept(visitor) {
         if (visitor.visitIfelse) {
@@ -1424,12 +1447,12 @@ class IfelseContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.IfelseContext = IfelseContext;
 class IfblockContext extends ParserRuleContext_1.ParserRuleContext {
-    IF() { return this.getToken(fisoParser.IF, 0); }
+    IF() { return this.getToken(FisoParser.IF, 0); }
     condition() {
         return this.getRuleContext(0, ConditionContext);
     }
-    LCB() { return this.getToken(fisoParser.LCB, 0); }
-    RCB() { return this.getToken(fisoParser.RCB, 0); }
+    LCB() { return this.getToken(FisoParser.LCB, 0); }
+    RCB() { return this.getToken(FisoParser.RCB, 0); }
     statement(i) {
         if (i === undefined) {
             return this.getRuleContexts(StatementContext);
@@ -1442,7 +1465,7 @@ class IfblockContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_ifblock; }
+    get ruleIndex() { return FisoParser.RULE_ifblock; }
     // @Override
     accept(visitor) {
         if (visitor.visitIfblock) {
@@ -1455,13 +1478,13 @@ class IfblockContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.IfblockContext = IfblockContext;
 class ElseifblockContext extends ParserRuleContext_1.ParserRuleContext {
-    ELSE() { return this.getToken(fisoParser.ELSE, 0); }
-    IF() { return this.getToken(fisoParser.IF, 0); }
+    ELSE() { return this.getToken(FisoParser.ELSE, 0); }
+    IF() { return this.getToken(FisoParser.IF, 0); }
     condition() {
         return this.getRuleContext(0, ConditionContext);
     }
-    LCB() { return this.getToken(fisoParser.LCB, 0); }
-    RCB() { return this.getToken(fisoParser.RCB, 0); }
+    LCB() { return this.getToken(FisoParser.LCB, 0); }
+    RCB() { return this.getToken(FisoParser.RCB, 0); }
     statement(i) {
         if (i === undefined) {
             return this.getRuleContexts(StatementContext);
@@ -1474,7 +1497,7 @@ class ElseifblockContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_elseifblock; }
+    get ruleIndex() { return FisoParser.RULE_elseifblock; }
     // @Override
     accept(visitor) {
         if (visitor.visitElseifblock) {
@@ -1487,9 +1510,9 @@ class ElseifblockContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.ElseifblockContext = ElseifblockContext;
 class ElseblockContext extends ParserRuleContext_1.ParserRuleContext {
-    ELSE() { return this.getToken(fisoParser.ELSE, 0); }
-    LCB() { return this.getToken(fisoParser.LCB, 0); }
-    RCB() { return this.getToken(fisoParser.RCB, 0); }
+    ELSE() { return this.getToken(FisoParser.ELSE, 0); }
+    LCB() { return this.getToken(FisoParser.LCB, 0); }
+    RCB() { return this.getToken(FisoParser.RCB, 0); }
     statement(i) {
         if (i === undefined) {
             return this.getRuleContexts(StatementContext);
@@ -1502,7 +1525,7 @@ class ElseblockContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_elseblock; }
+    get ruleIndex() { return FisoParser.RULE_elseblock; }
     // @Override
     accept(visitor) {
         if (visitor.visitElseblock) {
@@ -1515,12 +1538,12 @@ class ElseblockContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.ElseblockContext = ElseblockContext;
 class WhileContext extends ParserRuleContext_1.ParserRuleContext {
-    WHILE() { return this.getToken(fisoParser.WHILE, 0); }
+    WHILE() { return this.getToken(FisoParser.WHILE, 0); }
     condition() {
         return this.getRuleContext(0, ConditionContext);
     }
-    LCB() { return this.getToken(fisoParser.LCB, 0); }
-    RCB() { return this.getToken(fisoParser.RCB, 0); }
+    LCB() { return this.getToken(FisoParser.LCB, 0); }
+    RCB() { return this.getToken(FisoParser.RCB, 0); }
     statement(i) {
         if (i === undefined) {
             return this.getRuleContexts(StatementContext);
@@ -1533,7 +1556,7 @@ class WhileContext extends ParserRuleContext_1.ParserRuleContext {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_while; }
+    get ruleIndex() { return FisoParser.RULE_while; }
     // @Override
     accept(visitor) {
         if (visitor.visitWhile) {
@@ -1546,13 +1569,13 @@ class WhileContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.WhileContext = WhileContext;
 class BooleanContext extends ParserRuleContext_1.ParserRuleContext {
-    TRUE() { return this.tryGetToken(fisoParser.TRUE, 0); }
-    FALSE() { return this.tryGetToken(fisoParser.FALSE, 0); }
+    TRUE() { return this.tryGetToken(FisoParser.TRUE, 0); }
+    FALSE() { return this.tryGetToken(FisoParser.FALSE, 0); }
     constructor(parent, invokingState) {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_boolean; }
+    get ruleIndex() { return FisoParser.RULE_boolean; }
     // @Override
     accept(visitor) {
         if (visitor.visitBoolean) {
@@ -1565,19 +1588,19 @@ class BooleanContext extends ParserRuleContext_1.ParserRuleContext {
 }
 exports.BooleanContext = BooleanContext;
 class LoContext extends ParserRuleContext_1.ParserRuleContext {
-    GREATHER() { return this.tryGetToken(fisoParser.GREATHER, 0); }
-    LESSER() { return this.tryGetToken(fisoParser.LESSER, 0); }
-    GREATEQUAL() { return this.tryGetToken(fisoParser.GREATEQUAL, 0); }
-    LESSEQUAL() { return this.tryGetToken(fisoParser.LESSEQUAL, 0); }
-    AND() { return this.tryGetToken(fisoParser.AND, 0); }
-    OR() { return this.tryGetToken(fisoParser.OR, 0); }
-    EQUAL() { return this.tryGetToken(fisoParser.EQUAL, 0); }
-    DIFFERENT() { return this.tryGetToken(fisoParser.DIFFERENT, 0); }
+    GREATHER() { return this.tryGetToken(FisoParser.GREATHER, 0); }
+    LESSER() { return this.tryGetToken(FisoParser.LESSER, 0); }
+    GREATEQUAL() { return this.tryGetToken(FisoParser.GREATEQUAL, 0); }
+    LESSEQUAL() { return this.tryGetToken(FisoParser.LESSEQUAL, 0); }
+    AND() { return this.tryGetToken(FisoParser.AND, 0); }
+    OR() { return this.tryGetToken(FisoParser.OR, 0); }
+    EQUAL() { return this.tryGetToken(FisoParser.EQUAL, 0); }
+    DIFFERENT() { return this.tryGetToken(FisoParser.DIFFERENT, 0); }
     constructor(parent, invokingState) {
         super(parent, invokingState);
     }
     // @Override
-    get ruleIndex() { return fisoParser.RULE_lo; }
+    get ruleIndex() { return FisoParser.RULE_lo; }
     // @Override
     accept(visitor) {
         if (visitor.visitLo) {

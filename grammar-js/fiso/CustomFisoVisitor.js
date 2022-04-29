@@ -2,13 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomFisoVisitor = void 0;
 const AbstractParseTreeVisitor_1 = require("antlr4ts/tree/AbstractParseTreeVisitor");
-const fisoParser_1 = require("./grammar/fiso/fisoParser");
-let globalScope = new Map();
-let localScope = [];
+const FisoParser_1 = require("./FisoParser");
+let globalScope;
+let localScope;
+let output;
 let parser;
-let output = [];
-let errors = [];
-
 class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisitor {
     constructor(p) {
         super();
@@ -16,19 +14,12 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
         globalScope = new Map();
         localScope = [];
         output = [];
-        errors = [];
     }
-
-    getOutput(){
-        return output;
-    }
-
-    getErrors(){
-        return errors;
-    }
-
     defaultResult() {
         return null;
+    }
+    getOutput() {
+        return output;
     }
     visitPrint(ctx) {
         output.push(ctx.condition() ? this.visit(ctx.condition()) : this.visit(ctx.expression()));
@@ -38,7 +29,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
         try {
             if (ctx._parent._parent._parent === undefined) {
                 if (globalScope.has(ctx.ID().text)) {
-                    throw `Variable ${ctx.ID().text} declared already from global scope`;
+                    throw `Variable ${ctx.ID().text} declared already`;
                 }
                 else {
                     globalScope.set(ctx.ID().text, 0);
@@ -46,7 +37,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             }
             else {
                 if (globalScope.has(ctx.ID().text) || localScope[localScope.length - 1].has(ctx.ID().text)) {
-                    throw `Variable ${ctx.ID().text} declared already from local scope`;
+                    throw `Variable ${ctx.ID().text} declared already`;
                 }
                 else {
                     localScope[localScope.length - 1].set(ctx.ID().text, 0);
@@ -54,8 +45,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             }
         }
         catch (e) {
-            parser.notifyErrorListeners(`${e}`);
-            errors.push(e.message);
+            parser.notifyErrorListeners(`(FROM A DECLARATION) ${e}`, ctx.ID()._symbol, null);
         }
         return 0;
     }
@@ -64,18 +54,22 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             if (globalScope.has(ctx.ID().text)) {
                 globalScope.set(ctx.ID().text, ctx.expression() ? this.visit(ctx.expression()) : this.visit(ctx.condition()));
             }
-            else if (localScope[localScope.length - 1].has(ctx.ID().text)) {
-                localScope[localScope.length - 1].set(ctx.ID().text, ctx.expression() ? this.visit(ctx.expression()) : this.visit(ctx.condition()));
+            else if (localScope[localScope.length - 1]) {
+                if (localScope[localScope.length - 1].has(ctx.ID().text)) {
+                    localScope[localScope.length - 1].set(ctx.ID().text, ctx.expression() ? this.visit(ctx.expression()) : this.visit(ctx.condition()));
+                }
+                else {
+                    throw `Variable ${ctx.ID().text} is not declared`;
+                }
             }
             else {
                 throw `Variable ${ctx.ID().text} is not declared`;
             }
         }
         catch (e) {
-            parser.notifyErrorListeners(`${e}`);
-            errors.push(e.message);
+            parser.notifyErrorListeners(`(FROM AN ASSIGNMENT) ${e}`, ctx.ID()._symbol, null);
         }
-        return ctx.expression() ? this.visit(ctx.expression()) : this.visit(ctx.condition());
+        return 0;
     }
     visitNumberExpression(ctx) {
         return Number(ctx.NUMBER().text);
@@ -85,17 +79,22 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             if (globalScope.has(ctx.ID().text)) {
                 return Number(globalScope.get(ctx.ID().text));
             }
-            else if (localScope[localScope.length - 1].has(ctx.ID().text)) {
-                return Number(localScope[localScope.length - 1].get(ctx.ID().text));
+            else if (localScope[localScope.length - 1]) {
+                if (localScope[localScope.length - 1].has(ctx.ID().text)) {
+                    return Number(localScope[localScope.length - 1].get(ctx.ID().text));
+                }
+                else {
+                    throw `Variable ${ctx.ID().text} is not declared`;
+                }
             }
             else {
                 throw `Variable ${ctx.ID().text} is not declared`;
             }
         }
         catch (e) {
-            parser.notifyErrorListeners(`${e}`);
-            errors.push(e.message);
+            parser.notifyErrorListeners(`(FROM AN ID AND AN EXPRESSION) ${e}`, ctx.ID()._symbol, null);
         }
+        return null;
     }
     visitSubExpression(ctx) {
         return -Number(this.visit(ctx.expression()));
@@ -104,7 +103,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
         return Number(this.visit(ctx.expression()));
     }
     visitAddsubExpression(ctx) {
-        if (ctx._operator.type === fisoParser_1.fisoParser.ADD) {
+        if (ctx._operator.type === FisoParser_1.FisoParser.ADD) {
             return Number(this.visit(ctx.expression(0))) + Number(this.visit(ctx.expression(1)));
         }
         else {
@@ -113,7 +112,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
     }
     visitMuldivExpression(ctx) {
         try {
-            if (ctx._operator.type === fisoParser_1.fisoParser.MUL) {
+            if (ctx._operator.type === FisoParser_1.FisoParser.MUL) {
                 return Number(this.visit(ctx.expression(0))) * Number(this.visit(ctx.expression(1)));
             }
             else {
@@ -126,8 +125,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             }
         }
         catch (e) {
-            parser.notifyErrorListeners(`${e}`);
-            errors.push(e.message);
+            parser.notifyErrorListeners(`(FROM A MULTIPLY/DIVIDE EXPRESSION) ${e}`, ctx._operator, null);
         }
     }
     visitBoolean(ctx) {
@@ -146,8 +144,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             }
         }
         catch (e) {
-            parser.notifyErrorListeners(`${e}`);
-            errors.push(e.message);
+            parser.notifyErrorListeners(`(FROM A NUMBER AND A CONDITION) ${e}`, ctx.NUMBER()._symbol, null);
         }
     }
     visitIdCondition(ctx) {
@@ -175,8 +172,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             }
         }
         catch (e) {
-            parser.notifyErrorListeners(`${e}`);
-            errors.push(e.message);
+            parser.notifyErrorListeners(`(FROM AN ID AND A CONDITION) ${e}`, ctx.ID()._symbol, null);
         }
     }
     visitParenthesisCondition(ctx) {
@@ -185,22 +181,22 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
     visitExpressionCondition(ctx) {
         try {
             switch (ctx.lo()._start.type) {
-                case fisoParser_1.fisoParser.GREATHER:
+                case FisoParser_1.FisoParser.GREATHER:
                     return this.visit(ctx.expression(0)) > this.visit(ctx.expression(1));
                     break;
-                case fisoParser_1.fisoParser.LESSER:
+                case FisoParser_1.FisoParser.LESSER:
                     return this.visit(ctx.expression(0)) < this.visit(ctx.expression(1));
                     break;
-                case fisoParser_1.fisoParser.GREATEQUAL:
+                case FisoParser_1.FisoParser.GREATEQUAL:
                     return this.visit(ctx.expression(0)) >= this.visit(ctx.expression(1));
                     break;
-                case fisoParser_1.fisoParser.LESSEQUAL:
+                case FisoParser_1.FisoParser.LESSEQUAL:
                     return this.visit(ctx.expression(0)) <= this.visit(ctx.expression(1));
                     break;
-                case fisoParser_1.fisoParser.EQUAL:
+                case FisoParser_1.FisoParser.EQUAL:
                     return this.visit(ctx.expression(0)) === this.visit(ctx.expression(1));
                     break;
-                case fisoParser_1.fisoParser.DIFFERENT:
+                case FisoParser_1.FisoParser.DIFFERENT:
                     return this.visit(ctx.expression(0)) !== this.visit(ctx.expression(1));
                     break;
                 default:
@@ -209,17 +205,16 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             }
         }
         catch (e) {
-            parser.notifyErrorListeners(`${e}`);
-            errors.push(e.message);
+            parser.notifyErrorListeners(`(FROM AN EXPRESSION AND A CONDITION) ${e}`, ctx.lo()._start, null);
         }
     }
     visitConditionCondition(ctx) {
         try {
             switch (ctx.lo()._start.type) {
-                case fisoParser_1.fisoParser.OR:
+                case FisoParser_1.FisoParser.OR:
                     return Boolean(this.visit(ctx.condition(0))) || Boolean(this.visit(ctx.condition(1)));
                     break;
-                case fisoParser_1.fisoParser.AND:
+                case FisoParser_1.FisoParser.AND:
                     return Boolean(this.visit(ctx.condition(0))) && Boolean(this.visit(ctx.condition(1)));
                     break;
                 default:
@@ -228,8 +223,7 @@ class CustomFisoVisitor extends AbstractParseTreeVisitor_1.AbstractParseTreeVisi
             }
         }
         catch (e) {
-            parser.notifyErrorListeners(`${e}`);
-            errors.push(e.message);
+            parser.notifyErrorListeners(`(FROM A CONDITION AND A CONDITION) ${e}`, ctx.lo()._start, null);
         }
     }
     visitIfelse(ctx) {
