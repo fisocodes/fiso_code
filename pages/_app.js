@@ -1,39 +1,24 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { MantineProvider } from '@mantine/core';
+import { NotificationsProvider } from '@mantine/notifications';
 
-import '@fontsource/roboto/300.css';
+import "../styles/style.css";
 
-import './../styles/style.css';
-
-const theme = createTheme({
-    palette: {
-        type: 'dark',
-        primary: {
-          main: '#002240',
-        },
-        secondary: {
-          main: '#A569BD',
-        },
-        background: {
-          default: '#17202A',
-          paper: '#212F3D',
-        },
-        text: {
-          primary: '#F8F9F9',
-          secondary: 'rgba(52,73,94,0.54)',
-          disabled: 'rgba(52,73,94,0.38)',
-          hint: 'rgba(52,73,94,0.38)',
-        },
-      },
-      typography: {
-        fontFamily: 'Roboto',
-      },
-});
+const customTheme = {
+    colorScheme: 'dark',
+    colors: {
+        maincolor: ["#E5F3FF", "#B8DEFF", "#8AC8FF", "#5CB3FF", "#2E9DFF", "#0087FF", "#006CCC", "#005199", "#003666", "#001B33"]
+    },
+    primaryColor: 'maincolor'
+}
 
 export default function FisoCode({ Component, pageProps })
 {
+
     return(
-        <ThemeProvider theme={theme}>
-            <Component {...pageProps}/>
-        </ThemeProvider>
+        <MantineProvider theme={customTheme}>
+            <NotificationsProvider theme={customTheme}>
+                <Component {...pageProps}/>
+            </NotificationsProvider>
+        </MantineProvider>
     );
 }
