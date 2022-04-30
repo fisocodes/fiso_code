@@ -21,6 +21,8 @@
   "author": "Oscar Figueroa",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@mantine/core": "^4.2.1",
     "@mantine/hooks": "^4.2.1",
     "@mantine/next": "^4.2.1",
