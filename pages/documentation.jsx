@@ -5,6 +5,7 @@ import { Stack } from "@mantine/core";
 import { Center } from '@mantine/core';
 import { Title } from "@mantine/core";
 import { Text } from "@mantine/core";
+import { Mark } from '@mantine/core';
 import { Anchor } from "@mantine/core";
 import { Button } from "@mantine/core";
 import { Notification } from '@mantine/core';
@@ -13,7 +14,11 @@ import CodeIcon from '@mui/icons-material/Code';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 const CustomAceEditor = dynamic(() => import('../components/Editor'), {ssr: false});
-const codeSample = '\n\nThis is the editor';
+
+const codeExample = '\n\nThis is the editor';
+const declarationExample = 'var a var b var c \n\nvar one\nvar two\nvar three';
+const assignmentExample = 'variable1 = 10\nvariable2 = 15 / (4 - 1)\nvariable3 = variable1 + variable2';
+const printExample = 'print myVariable\nprint (5 * 5) / (1 + 2)';
 
 export default function Documentation()
 {
@@ -79,7 +84,7 @@ export default function Documentation()
                     In the middle you can see the code editor which is used to write some
                     code. There is not more explanation.
                 </Text>
-                <CustomAceEditor height="100px" value={codeSample} readOnly/>
+                <CustomAceEditor height="100px" value={codeExample} readOnly/>
                 <Text align="justify">
                     Finally, at the very bottom you can see the output console,
                     wich appears blank before running any code.
@@ -107,6 +112,49 @@ export default function Documentation()
                     Error [line][column]: Error description.
                 </Notification>
                 <Title order={2}>Syntax</Title>
+                <Text align="justify">
+                    Fiso Code is an structured language. It means that every instruction
+                    is run one after another. The execution order in Fiso Code as in many
+                    other languages is from top to bottom.
+                </Text>
+                <Title order={3}>Variable declaration</Title>
+                <Text align="justify">
+                    Declaring a variable is very simple. Use the reserved word <Mark>var</Mark> followed
+                    by an identifier. Note that variable identifiers can only have
+                    numbers or letters and can not start with number.
+                </Text>
+                <CustomAceEditor height="100px" value={declarationExample} readOnly/>
+                <Text align="justify">
+                    You can declare one or more variables on the same line, but it is
+                    preferable to have one declaration per line. That helps to maintain
+                    the code readeable.
+                </Text>
+                <Title order={3}>Assignment</Title>
+                <Text align="justify">
+                    When you declare a variable, Fiso Code assigns the default value of
+                    zero to it. But probably you might want your variables to have different
+                    values. In order to do that you have to use an identifier followed by
+                    the equals sign and then a number, an expression or another identifier.
+                </Text>
+                <CustomAceEditor height="100px" value={assignmentExample} readOnly/>
+                <Text align="justify">
+                    Note that you have to declare your variables before assinging values
+                    to them. Otherwise, you will get an error.
+                </Text>
+                <Title order={3}>Output</Title>
+                <Text align="justify">
+                    In order to get a result back from our code we need to show the output
+                    on our screen. The way to do that is using the reserved word <Mark>print</Mark> followed
+                    by an expression or identifier.
+                </Text>
+                <CustomAceEditor height="100px" value={printExample} readOnly/>
+                <Text align="justify">
+                    So far we have learned how to declare variables, how to assign values and how to
+                    show the results in console. But sometimes is necesary to have more control over
+                    our code. In the next section we will discuss the control structures which allow
+                    us to decide or choose the chunk of code to be excuted based on conditions.
+                </Text>
+                <Title order={2}>Control structures</Title>
             </Stack>
         </>
     );
